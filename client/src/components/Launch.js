@@ -32,7 +32,27 @@ class Launch extends Component {
         <Query query={LAUNCH_QUERY} variables={{flight_number}}>
         {
           ({loading, err, data}) => {
-            if (loading) return <h4>Loading launch data</h4>
+            if (loading) return (<div>
+              <h1 className="display-4 my-3"> <span className="text-dark">Mission:</span> </h1>
+              <h4 className="mb-3">Launch Details</h4>
+              <ul className="list-group">
+                <li className="list-group-item">Flight Number: </li>
+                <li className="list-group-item">Launch Year: </li>
+                <li className="list-group-item">Launch Successful:</li>
+
+              </ul>
+              <h4 className="my-3">Rocket Details</h4>
+              <ul className="list-group">
+                <li className="list-group-item">Rocket ID: </li>
+                <li className="list-group-item">Rocket Name: </li>
+                <li className="list-group-item">Rocket Type: </li>
+
+              </ul>
+              <hr/>
+
+              <Link to="/" className="btn btn-secondary"> Back</Link>
+
+            </div>)
             if (err) console.log(err)
 
             const { flight_number,
